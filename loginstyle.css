@@ -1,0 +1,85 @@
+.logo {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    padding:0% 0% 0% 0%;
+}
+.body h1 {
+    color:#66CD00;
+    margin-top:5%;
+}
+.login_block {
+    margin-top: 0%;
+    width: 50%;
+    height: 50%;
+    border-style: groove;/*
+    border-color: #6D0CF6;*/
+}
+.uname h1 {
+    text-align: center;
+    color: #000;
+    font-size: 105%;
+    text-transform: uppercase;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #989594;
+}
+
+.uname input {
+    width: 50%;
+    height: 45px;
+    box-sizing: border-box;
+    border-radius: 5%;
+    border: 1px solid #ccc;
+    margin-bottom: 5%;
+    font-size: 105%;
+    font-family: Montserrat;
+    padding: 0 5% 0 10.5%;
+    outline: none;
+}
+
+.pwd h1 {
+    text-align: center;
+    color: #000;
+    font-size: 105%;
+    text-transform: uppercase;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #989594;
+}
+
+.pwd input {
+    width: 50%;
+    height: 45px;
+    box-sizing: border-box;
+    border-radius: 5%;
+    border: 1px solid #ccc;
+    margin-bottom: 5%;
+    font-size: 105%;
+    font-family: Montserrat;
+    padding: 0 5% 0 10.5%;
+    outline: none;
+}
+
+.uname input#username {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.uname input#username:focus {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.pwd input#password {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.pwd input#password:focus {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+.s_button {
+    padding: 0% 0% 2% 0%;
+}
