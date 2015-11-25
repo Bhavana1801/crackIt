@@ -18,7 +18,9 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-     <link rel="stylesheet" type="text/css" href="uploadFile.css">
+    {% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'project/uploadFile.css' %}" />
 <script type="text/javascript">
     + function($) {
     'use strict';
