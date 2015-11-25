@@ -1,0 +1,173 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $(function(){
+
+    $(".dropdown-menu").on('click', 'li a', function(){
+      $(".btn:first-child").text($(this).text());
+      $(".btn:first-child").val($(this).text());
+   });
+
+});
+</script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+     <link rel="stylesheet" type="text/css" href="uploadFile.css">
+<script type="text/javascript">
+    + function($) {
+    'use strict';
+
+    // UPLOAD CLASS DEFINITION
+    // ======================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+        console.log(files)
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        var uploadFiles = document.getElementById('js-upload-files').files;
+        e.preventDefault()
+
+        startUpload(uploadFiles)
+    })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files)
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+
+}(jQuery);
+  </script>
+<script type="text/javascript">
+$.getScript('http://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js',function(){
+  // instantiate the uploader
+  $('#drop-zone').upload-drop-zone({ 
+    url: "/upload",
+    maxFilesize: 100,
+    paramName: "uploadfile",
+    maxThumbnailFilesize: 5,
+    init: function() {
+      
+      this.on('success', function(file, json) {
+      });
+      
+      this.on('addedfile', function(file) {
+        
+      });
+      
+      this.on('drop', function(file) {
+        alert('file');
+      }); 
+    }
+  });
+});
+
+$(document).ready(function() {});
+</script>
+</head>
+<body>
+<header>
+  <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="" class="navbar-brand">repository</a>
+      </div>
+      <div class="collpase navbar-collapse" id="example">
+        <ul class="nav navbar-nav">
+          <li><a href="main">Home</a></li>
+          <li class="active"><a href="">About us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> 
+</header>
+<br><br><br>
+<table>
+<tr>
+<td>
+<h2>Select your Domain</h2>                                         
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Domain
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">C</a></li>
+      <li><a href="#">C++</a></li>
+      <li><a href="#">Java</a></li>
+    </ul>
+  </div>
+</td>
+<td>
+  <div class="container">
+    <div class="panel panel-default">
+     <!--  <div class="panel-heading"><strong>Upload Files</strong> <small>Bootstrap files upload</small></div> -->
+      <div class="panel-body">
+
+        <!-- Standar Form -->
+        <h4>Select files from your computer</h4>
+        <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <div class="form-inline" display="flex">
+            <div class="form-group">
+              <input type="file" name="files[]" id="js-upload-files" multiple>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+          </div>
+        </form>
+
+        <!-- Drop Zone -->
+        <h4>Or drag and drop files below</h4>
+        <div class="upload-drop-zone" id="drop-zone">
+          Just drag and drop files here
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Submit</button>
+        <button type="button" class="btn btn-sm btn-primary" id="js-upload-submit">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- /container -->
+</td>
+</tr>
+</table>
+</div>
+<footer>
+    <div class="container">
+      <hr>
+      <p>
+        <small><a href="http://facebook.com/wpproject">Like us</a> On facebook</small></p>
+      <p> <small><a href="http://twitter.com/epproject">Ask whatever </a> On Twitter</small></p>
+      <p> <small><a href="http://youtube.com/wpproject">Subscribe us</a> On Youtube</small>
+        
+      </p>
+    </div> <!-- end container -->
+  </footer>
+</body>
+</html>
