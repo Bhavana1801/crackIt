@@ -14,17 +14,18 @@
  -->
 
 {% block title %}Registration - {{ block.super}}{% endblock %}
-
+{% load static %}
+<script src="{% static "js/regVal.js"%}" type = "text/javascript"></script>
 {% block content %}
 <h1>Registration</h1>
-<form role="form" action="/myapp/signup/" method="post">
+<form role="form" action="/myapp/signup/" method="post" name = "registration" >
     {% csrf_token %}
     username:<input type = "text" name = "username" id = "username"><br>
 	email:<input type = "text" name = "email" id = "email"><br><br>
-	password:<input type = "password" name = "password" id = "password"><br><br>
-	Re-Enter password:<input type = "password" name = "re-enter password"><br><br>
+	password:<input type = "password" name = "password" id = "password1"><br><br>
+	Re-Enter password:<input type = "password" name = "password2"><br><br>
 	mobilenum:<input type = "text" name = "mobilenum" id = "mobilenum"><br><br>
 	<!-- content:<textarea rows = "5" cols = "20"></textarea> -->
-    <button type="submit">Submit</button>
+    <button type="submit" onclick = "formValidation()">Submit</button>
 </form>
 {% endblock %}
