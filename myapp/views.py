@@ -47,12 +47,20 @@ def signup(request):
 		form = UserDetailsForm(request.POST)
 		if form.is_valid():
 			form.save()
+<<<<<<< HEAD
 			return HttpResponseRedirect('/myapp/main/')
+=======
+			return HttpResponseRedirect('/myapp/main')
+>>>>>>> 811e83df86e3591613c56b0b0c790abcddc6048a
 		else:
 			temp = "<html><boby>Email-id or the mobile number already exists</body></html>"
 			return HttpResponse(temp)
 	return render_to_response('registration.html',{'form':form}, context_instance=RequestContext(request))
 def profile(request):
+<<<<<<< HEAD
     return render_to_response('profile.html')
 def upload_file(request):
     return render_to_response('uploadFile.html')
+=======
+    return render_to_response('profile.html')
+>>>>>>> 811e83df86e3591613c56b0b0c790abcddc6048a
