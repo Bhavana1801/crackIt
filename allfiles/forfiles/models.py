@@ -7,5 +7,9 @@ class UserDetails(models.Model):
 	email = models.EmailField(unique=True)
 	mobilenum = models.CharField(max_length=15,unique=True)
 class ProfileImage(models.Model):
+	keyword = models.CharField(max_length=20)
+	domain = models.CharField(max_length=20)
 	image = models.FileField(upload_to='profile/%Y/%m/%d')
-
+	username = models.CharField(max_length=30)
+	# def __unicode__(self):
+	# 	return self.username

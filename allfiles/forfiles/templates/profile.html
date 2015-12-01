@@ -42,7 +42,7 @@
 		</div>
 			<div class="jumbotron">
 				<div class="container">
-					<h1>Hello World</h1>
+					<h1>Hello '{{ request.user.username }}'</h1>
 					<h3></h3>
 				</div> 
 			</div> 
@@ -54,7 +54,7 @@
                 <button class="btn btn-primary" >Add a file</button>
         </div> 
     </form>
-	<form action="" class="navbar-form navbar-right" role="search">
+	<form action="/forfiles/search" class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="search this out">
 						</div>

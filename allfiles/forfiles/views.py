@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
 from forms import UserDetailsForm
@@ -37,7 +37,7 @@ def auth_view(request):
     if user is not None:
         if user.password == password:
             request.session['username'] = user.username
-            return HttpResponseRedirect('/myapp/profile/')
+            return HttpResponseRedirect('/forfiles/profile/')
         else:
             html = "<html><body>Password incorrect</body></html>"
             return HttpResponse(html)
@@ -54,7 +54,7 @@ def signup(request):
         form = UserDetailsForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/myapp/main/')
+            return HttpResponseRedirect('/forfiles/main/')
         else:
             temp = "<html><boby>Email-id or the mobile number already exists</body></html>"
             return HttpResponse(temp)
@@ -73,13 +73,21 @@ class ProfileImageView(FormView):
     	print "form_class"
         profile_image = ProfileImage(
             image=self.get_form_kwargs().get('files')['image'])
+            # keyword=self.get_form_kwargs().get('files')['keyword'])   
+        profile_image.keyword = form.cleaned_data['keyword']
+        profile_image.domain = form.cleaned_data['domain']
+        profile_image.username = form.cleaned_data['username']
         profile_image.save()
         self.id = profile_image.id
+        print self.get_form_kwargs()
 
-        return HttpResponseRedirect(self.get_success_url())
+        # return HttpResponseRedirect(self.get_success_url())
+        return render_to_response('profile.html')
 
     def get_success_url(self):
-        return reverse('profile_image', kwargs={'pk': self.id})
+        # print kwargs={'pk':self.id}
+        # return reverse('profile', kwargs={'pk': self.id})
+        return render_to_response('profile.html')
 
 class ProfileDetailView(DetailView):
     model = ProfileImage
@@ -92,3 +100,9 @@ class ProfileImageIndexView(ListView):
     template_name = 'profile_image.html'
     context_object_name = 'images'
     queryset = ProfileImage.objects.all()
+
+def search(request):
+    pgmName = request.GET.get('search','')
+    return render_to_response('searchResults.html',
+        {'results':ProfileImage.objects.filter(pgmname=pgmName)}
+        )
