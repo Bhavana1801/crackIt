@@ -5,9 +5,14 @@
 <body>
 <p>results are</P>
 {% for result in results %}
+<<<<<<< HEAD
 	<p> username : {{ result.username }}</p>
 	<a href = "/forfiles/loadProgram/{{ result.id }}" method="get">{{ result.image }}</a>
 	<a href = "file:\\\{{result.image}}">jhasd</a>
+=======
+	<p> username{{ result.username }}</p>
+	<a href = "loadProgram" method="get">{{ result.image }}</a>
+>>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
 	<br>
 {% endfor %}
 </body>

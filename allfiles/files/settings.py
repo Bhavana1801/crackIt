@@ -78,11 +78,7 @@ WSGI_APPLICATION = 'files.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'mysql.connector.django',
-<<<<<<< HEAD
-       'NAME': 'second',
-=======
        'NAME': 'second1',
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
        'USER': 'root',
        'PASSWORD':'Bhavana',
    }

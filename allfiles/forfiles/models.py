@@ -9,11 +9,7 @@ class UserDetails(models.Model):
 class ProfileImage(models.Model):
 	keyword = models.CharField(max_length=20)
 	domain = models.CharField(max_length=20)
-<<<<<<< HEAD
-	image = models.FileField(upload_to='files2\\')
-=======
 	image = models.FileField(upload_to='profile/%Y/%m/%d')
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
 	username = models.CharField(max_length=30)
 	# def __unicode__(self):
 	# 	return self.username
