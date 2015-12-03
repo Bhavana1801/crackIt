@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<<<<<<< HEAD
+<!-- <form action="{% url "profile_image_upload" %}" method="post" enctype="multipart/form-data"> -->
+<form action = 'forfiles/sample/'method = "post">
+=======
+<form action="{% url "profile_image_upload" %}" method="post" enctype="multipart/form-data">
+>>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="text" name = "keyword" id = "keyword">keyword</input>
+    <input type = "text" name="domain" id = "domain">domain</input>
+    <input type="submit" value="submit" />
+</form>
+{% endblock %}

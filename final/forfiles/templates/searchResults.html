@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>results</title>
+</head>
+<body>
+<p>results are</P>
+{% for result in results %}
+	<p> username : {{ result.username }}</p>
+	<a href = "/forfiles/loadProgram/{{ result.id }}" method="get">{{ result.image }}</a>
+
+	<br>
+{% endfor %}
+</body>
