@@ -12,20 +12,11 @@ from django.template import RequestContext
 from django.views.generic import FormView,DetailView,ListView
 from .forms import ProfileImageForm
 from .models import ProfileImage
-<<<<<<< HEAD
-import codecs
-=======
 
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
 
 
 def main(request):
     return render_to_response('main.html')
-<<<<<<< HEAD
-def sample(request):
-    return render_to_response('sample.html')
-=======
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
 # def registrationpage(request):
 #     return render_to_response('registration.html')
 def login(request):
@@ -79,18 +70,9 @@ class ProfileImageView(FormView):
     form_class = ProfileImageForm
     print form_class
     def form_valid(self, form):
-    	print "form_class"
-<<<<<<< HEAD
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-        MEDIA_ROOT = os.path.join(BASE_DIR, 'media\\')
-    # MEDIA_URL = '/media/'
-        profile_image = ProfileImage(
-            image=MEDIA_ROOT+str(self.get_form_kwargs().get('files')['image']))
-=======
+        print "form_class"
         profile_image = ProfileImage(
             image=self.get_form_kwargs().get('files')['image'])
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
             # keyword=self.get_form_kwargs().get('files')['keyword'])   
         profile_image.keyword = form.cleaned_data['keyword']
         profile_image.domain = form.cleaned_data['domain']
@@ -120,41 +102,15 @@ class ProfileImageIndexView(ListView):
     queryset = ProfileImage.objects.all()
 
 def search(request):
-    print "insearch"
-    keyWord = request.GET.get('search','')
-    print keyWord
-    # listp = ProfileImage.objects.all()
-    # print listp
+    pgmName = request.GET.get('search','')
     return render_to_response('searchResults.html',
-        {'results':ProfileImage.objects.filter(keyword=keyWord)}
+        {'results':ProfileImage.objects.filter(keyword=pgmName)}
         )
-    # pgmList = ProfileImage.objects.all()
-    # pgmListdata = {
-    #     "data" : pgmList
-    # }
-    # print pgmListdata
-    # return render_to_response('searchResults.html',pgmListdata,context_instance=RequestContext(request))
-<<<<<<< HEAD
 def loadProgram(request,pgmid):
-    # print pgmid
-    # html = "<html><body><a href = "'{{MEDIA_URL}}{{pgmid}}'">hai</body></html>"
-    # print html
-    pgm =ProfileImage.objects.get(id=pgmid)
-    f = codecs.open(str(pgm.image),encoding='utf-8')
-    for line in f:
-        print repr(line)
-    # lines = open(str(pgm.image),encoding='utf-8').read()
-    # print str(pgm.image)
-    # print lines
-    # read all the lines in the file and return them in a list
-    # lines =str(f.readlines()) 
-    print"see here"
-    # print lines
-    # f.close()
-    return render_to_response('loadProgram.html',{'lines':lines})
-    # return HttpResponse(html)
-
-=======
-# def loadProgram(request):
-    
->>>>>>> 17fc857c12474914b6016587ff36d81e52aec05f
+        pgm =ProfileImage.objects.get(id=pgmid)
+        filepath = str(pgm.image)
+        filepath = filepath[2:]
+        filepath='media\\'+filepath
+        f = open(filepath,'r')
+        data = f.readlines()
+        return render_to_response('loadProgram.html',{'data':data})

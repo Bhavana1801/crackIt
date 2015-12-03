@@ -7,14 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('forfiles', '0003_auto_20151201_1007'),
+        ('forfiles', '0013_auto_20151201_1729'),
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='profileimage',
-            name='username',
-            field=models.CharField(default=0, max_length=30),
-            preserve_default=False,
+            name='image',
+            field=models.FileField(upload_to=b''),
         ),
     ]

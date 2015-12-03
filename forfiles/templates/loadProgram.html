@@ -4,7 +4,9 @@
 </head>
 <body>
 	<p>
-		{{lines}}
+		{% for line in data %}
+		<p>{{line}}</p>
+		{% endfor %}
 		<!-- {{ pgm.image }}<br>
 		file:///{{pgm.image}} -->
 		<!-- <p>file:///C:\Users\bhavs\Desktop\files\completedfiles\allfiles\media\{{ pgm.image }}</p> -->
